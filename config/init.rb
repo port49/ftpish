@@ -87,7 +87,7 @@ end
 #
 # To use Test::Unit, you need to install the merb_test_unit gem.
 # To use RSpec, you don't have to install any additional gems, since
-# merb-core provides support for RSpec.
+# merb-core provides support for RSpec.session
 #
 # use_test :test_unit
 use_test :rspec
@@ -123,12 +123,12 @@ Merb::Config.use do |c|
   # c[:session_id_key] = '_session_id'
   
   # The session_secret_key is only required for the cookie session store.
-  c[:session_secret_key]  = 'b3070ccb2c75ffbb44324fa8cd7dcadfbfd831f5'
+  # c[:session_secret_key]  = 'b3070ccb2c75ffbb44324fa8cd7dcadfbfd831f5'
   
   # There are various options here, by default Merb comes with 'cookie', 
   # 'memory' or 'memcached'.  You can of course use your favorite ORM 
   # instead: 'datamapper', 'sequel' or 'activerecord'.
-  c[:session_store] = 'cookie'
+  c[:session_store] = 'none'
 end
 
 
