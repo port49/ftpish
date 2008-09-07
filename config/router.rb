@@ -31,5 +31,5 @@ Merb::Router.prepare do |r|
   r.default_routes
   
   # Change this for your home page to be available at /
-  r.match( '/upload/:action' ).to( :controller => 'uploads' )
+  r.match( '/:action' ).to( :controller => 'uploads' )
 end
