@@ -6,3 +6,7 @@ Merb::Config.use { |c|
   c[:log_auto_flush ] = true
   c[:log_level] = :debug
 }
+
+RAILS_PATH = File.join '..', '..', 'rails', 'lwdg_rails'
+RAILS_URL = "http://localhost:3000"
+

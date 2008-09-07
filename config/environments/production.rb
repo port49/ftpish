@@ -5,3 +5,7 @@ Merb::Config.use { |c|
   c[:log_level] = :error
   c[:log_file] = Merb.log_path + "/production.log"
 }
+
+RAILS_PATH = File.join '..', '..', 'lwdg', 'public_html'
+RAILS_URL = "http://lwdg.port49.com"
+

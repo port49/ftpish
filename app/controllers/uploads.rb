@@ -5,9 +5,9 @@ class Uploads < Application
   end
   
   def post
-    new_file_path = Merb.root / '..' / '..' / 'rails' / 'lwdg_rails' / 'public' / 'files' / params[:directory][:path] / sanitize_filename( params[:file][:filename] )
+    new_file_path = Merb.root / RAILS_PATH / 'public' / 'files' / params[:directory][:path] / sanitize_filename( params[:file][:filename] )
     FileUtils.mv params[:file][:tempfile].path, new_file_path
-    redirect "http://localhost:3000/directory?id=#{ params[:directory][:path] }"
+    redirect "#{ RAILS_URL }/directory?id=#{ params[:directory][:path] }"
   end
 
   def sanitize_filename( filename )
