@@ -21,7 +21,7 @@
 
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do |r|
-  r.match( '/:action' ).to( :controller => 'uploads' )
+  r.match( '/upload/:action' ).to( :controller => 'uploads' )
   # RESTful routes
   # r.resources :posts
 
