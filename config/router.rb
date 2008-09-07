@@ -32,4 +32,5 @@ Merb::Router.prepare do |r|
   
   # Change this for your home page to be available at /
   r.match( '/:action' ).to( :controller => 'uploads' )
+  r.match( '/upload/:action.html' ).to( :controller => 'uploads' )
 end
