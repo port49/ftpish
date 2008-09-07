@@ -21,6 +21,7 @@
 
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do |r|
+  r.match( '/:action' ).to( :controller => 'uploads' )
   # RESTful routes
   # r.resources :posts
 
@@ -30,7 +31,4 @@ Merb::Router.prepare do |r|
   # clients from calling your create or destroy actions with a GET
   r.default_routes
   
-  # Change this for your home page to be available at /
-  r.match( '/:action' ).to( :controller => 'uploads' )
-  r.match( '/upload/:action.html' ).to( :controller => 'uploads' )
 end
