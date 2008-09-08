@@ -7,6 +7,7 @@ class Uploads < Application
   def post
     new_file_path = Merb.root / RAILS_PATH / 'public' / 'files' / params[:directory][:path] / sanitize_filename( params[:file][:filename] )
     FileUtils.mv params[:file][:tempfile].path, new_file_path
+    File.chmod( 0660, new_file_path )
     redirect "#{ RAILS_URL }/directory?id=#{ params[:directory][:path] }"
   end
 
