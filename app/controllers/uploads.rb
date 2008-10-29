@@ -5,6 +5,8 @@ class Uploads < Application
   end
   
   def post
+raise params.inspect
+
     if params[:file].is_a?( Array )
       params[:file].each do |file|
         new_file_path = Merb.root / RAILS_PATH / 'public' / 'files' / params[:directory][:path] / sanitize_filename( file[:filename] )
