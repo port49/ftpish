@@ -6,7 +6,7 @@ class Uploads < Application
   
   def post
     if params[:file].is_a?( Array )
-      params[:file].each |file|
+      params[:file].each do |file|
         new_file_path = Merb.root / RAILS_PATH / 'public' / 'files' / params[:directory][:path] / sanitize_filename( file[:filename] )
         FileUtils.mv file[:tempfile].path, new_file_path
         File.chmod( 0664, new_file_path )
