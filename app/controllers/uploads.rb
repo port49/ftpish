@@ -5,18 +5,12 @@ class Uploads < Application
   end
   
   def post
-raise params.inspect
-
-    if params[:file].is_a?( Array )
-      params[:file].each do |file|
+    params[:file].each do |file|
+      if file[:filename].length > 0
         new_file_path = Merb.root / RAILS_PATH / 'public' / 'files' / params[:directory][:path] / sanitize_filename( file[:filename] )
         FileUtils.mv file[:tempfile].path, new_file_path
         File.chmod( 0664, new_file_path )
       end
-    else
-      new_file_path = Merb.root / RAILS_PATH / 'public' / 'files' / params[:directory][:path] / sanitize_filename( params[:file][:filename] )
-      FileUtils.mv params[:file][:tempfile].path, new_file_path
-      File.chmod( 0664, new_file_path )
     end
     redirect "#{ RAILS_URL }/directory?id=#{ params[:directory][:path] }"
   end
