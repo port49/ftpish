@@ -12,7 +12,7 @@ class Uploads < Application
         File.chmod( 0664, new_file_path )
       end
     end
-    redirect "#{ RAILS_URL }/directory?id=#{ params[:directory][:path] }"
+    redirect "#{ request.protocol }#{ request.host }/directory?id=#{ params[:directory][:path] }"
   end
 
   def sanitize_filename( filename )
